@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 
-const KEY =
-  "pk_test_51KiOLVAkLOadQCRgUshxI56Gz6WCGQTIh7CLvsDNOpqL7mMH4ivs19QAIhX5LrZuJQ4dQbfs65r4R0LwhyvNQuqW00JlKlFvKE";
+const KEY="pk_test_51KiOLVAkLOadQCRgUshxI56Gz6WCGQTIh7CLvsDNOpqL7mMH4ivs19QAIhX5LrZuJQ4dQbfs65r4R0LwhyvNQuqW00JlKlFvKE";
 
 const Pay = () => {
   const [stripeToken, setStripeToken] = useState(null);
