@@ -12,16 +12,13 @@ import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 
 function App() {
-  const admin = JSON.parse(
-    JSON.parse(localStorage.getItem("persist:root")).user
-  ).currentUser.isAdmin;
+  const admin = JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user || "{}")?.currentUser?.isAdmin;
   return (
     <Router>
       <Switch>
         <Route path="/login">
           <Login />
         </Route>
-
         {admin && (
           <>
             <Topbar />
@@ -45,7 +42,7 @@ function App() {
               <Route path="/product/:productId">
                 <Product />
               </Route>
-              <Route path="/newProduct">
+              <Route path="/newproduct">
                 <NewProduct />
               </Route>
             </div>
