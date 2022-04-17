@@ -4,7 +4,6 @@ mongoose
   .then(() => console.log("DB Connection successful"))
   .catch((err) => console.log(err));
 
-// defining a schema for a user's cart
 const CartSchema = new mongoose.Schema(
   {
     userId: {
@@ -23,7 +22,7 @@ const CartSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamps: true } // created at: x  updated at: y
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Cart", CartSchema);

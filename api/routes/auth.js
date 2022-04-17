@@ -16,9 +16,9 @@ router.post("/register", async (req, res) => {
 
   try {
     const savedUser = await newUser.save();
-    res.status(201).json(savedUser); //send back the saved user + the status code
+    res.status(201).json(savedUser);
   } catch (err) {
-    res.status(500).json(err); //send back the error message + the status code
+    res.status(500).json(err);
   }
 });
 
@@ -27,10 +27,12 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
     !user && res.status(401).json("Wrong credentials!");
+
     const hashedPassword = CryptoJS.AES.decrypt(
       user.password,
       process.env.PASS_SEC
     );
+    
     const OriginalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
 
     OriginalPassword !== req.body.password &&

@@ -4,7 +4,6 @@ mongoose
   .then(() => console.log("DB Connection successful"))
   .catch((err) => console.log(err));
 
-// defining a schema for a user
 const UserSchema = new mongoose.Schema( 
   {
     username: {
@@ -27,7 +26,7 @@ const UserSchema = new mongoose.Schema(
     },
     img: {type: String},
   },
-  { timestamps: true } // created at: x  updated at: y
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("User", UserSchema);

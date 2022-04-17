@@ -31,7 +31,6 @@ export default function NewProduct() {
     const fileName = new Date().getTime() + file.name;
     const storage = getStorage(app);
     const storageRef = ref(storage, fileName);
-
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     // Register three observers:

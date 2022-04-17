@@ -4,7 +4,6 @@ mongoose
   .then(() => console.log("DB Connection successful"))
   .catch((err) => console.log(err));
 
-// defining a schema for an order
 const OrderSchema = new mongoose.Schema(
   {
     userId: {
@@ -35,7 +34,7 @@ const OrderSchema = new mongoose.Schema(
       default: "pending",
     },
   },
-  { timestamps: true } // created at: x  updated at: y
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Order", OrderSchema);

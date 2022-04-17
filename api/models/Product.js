@@ -4,7 +4,6 @@ mongoose
   .then(() => console.log("DB Connection successful"))
   .catch((err) => console.log(err));
 
-// defining a schema for a product
 const ProductSchema = new mongoose.Schema(
   {
     title: {
@@ -22,7 +21,6 @@ const ProductSchema = new mongoose.Schema(
     },
     categories: {
       type: Array,
-      required: true,
     },
     size: {
       type: Array,
@@ -39,7 +37,7 @@ const ProductSchema = new mongoose.Schema(
       default: true,
     },
   },
-  { timestamps: true } // created at: x  updated at: y
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Product", ProductSchema);

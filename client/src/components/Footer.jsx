@@ -89,9 +89,9 @@ const Footer = () => {
       <Left>
         <Logo>STORE.</Logo>
         <Desc>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
+          Lorem ipsum dolor sit amet. Sed similique laudantium sed maxime iusto
+          ut quae magnam id dolore dolore et quisquam aut sapiente quia qui
+          voluptas dolores.
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
@@ -135,7 +135,7 @@ const Footer = () => {
         </ContactItem>
         <ContactItem>
           <MailOutline style={{ marginRight: "10px" }} />
-          febinbellamy@gmail.com
+          loremipsum@gmail.com
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
