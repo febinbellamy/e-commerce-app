@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { ShoppingCartOutlined, HomeOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
@@ -26,22 +26,8 @@ const Left = styled.div`
 `;
 
 const Language = styled.span`
-  font-size: 14px;
   cursor: pointer;
   ${mobile({ display: "none" })};
-`;
-
-const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
-  padding: 5px;
-`;
-
-const Input = styled.input`
-  border: none;
-  ${mobile({ width: "40px" })};
 `;
 
 const Center = styled.div`
@@ -66,6 +52,7 @@ const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  text-decoration: none;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })};
 `;
 
@@ -76,19 +63,32 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
-          <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: 16 }} />
-          </SearchContainer>
+          <Link to="/" style={{ color: "inherit", textDecoration: "inherit" }}>
+            <Language>
+              <HomeOutlined />
+            </Language>
+          </Link>
         </Left>
         <Center>
           <Logo>STORE.</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
-          <Link to="/cart">
+          <Link
+            to="/register"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <MenuItem>REGISTER</MenuItem>
+          </Link>
+          <Link
+            to="/login"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <MenuItem>SIGN IN</MenuItem>
+          </Link>
+          <Link
+            to="/cart"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
             <MenuItem>
               <Badge badgeContent={quantity} color="primary">
                 <ShoppingCartOutlined />

@@ -1,7 +1,5 @@
 import {
-  FavoriteBorderOutlined,
   SearchOutlined,
-  ShoppingCartOutlined,
 } from "@material-ui/icons";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -74,15 +72,9 @@ const Product = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Icon>
-          <ShoppingCartOutlined />
-        </Icon>
-        <Icon>
-          <Link to={`/product/${item._id}`}>
+          <Link to={`/product/${item._id}`} onClick={() => window.scrollTo(0, 0)}>
             <SearchOutlined />
           </Link>
-        </Icon>
-        <Icon>
-          <FavoriteBorderOutlined />
         </Icon>
       </Info>
     </Container>

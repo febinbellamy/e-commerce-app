@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -52,6 +53,7 @@ const Button = styled.button`
   background-color: teal;
   color: white;
   cursor: pointer;
+  margin-bottom: 15px;
 `;
 
 const Register = () => {
@@ -71,6 +73,7 @@ const Register = () => {
           </Agreement>
           <Button>CREATE</Button>
         </Form>
+        <Link to="/login" style={{ color: "inherit", textDecoration: "underline", fontSize: 12}}>ALREADY HAVE AN ACCOUNT? SIGN IN</Link>
       </Wrapper>
     </Container>
   );

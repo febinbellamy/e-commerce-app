@@ -1,10 +1,9 @@
 import Chart from "../../components/charts/Chart";
 import Featuredinfo from "../../components/featuredInfo/Featuredinfo";
 import "./home.css";
-import { userData } from "../../dummyData";
-import WidgetLg from "../../components/widgetLg/WidgetLg";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
-import { useEffect, useState, useMemo } from "react";
+import WidgetLg from "../../components/widgetLg/WidgetLg";
+import { useEffect, useMemo, useState } from "react";
 import { userRequest } from "../../requestMethods";
 
 export default function Home() {
@@ -19,7 +18,7 @@ export default function Home() {
       "May",
       "Jun",
       "Jul",
-      "Agu",
+      "Aug",
       "Sep",
       "Oct",
       "Nov",

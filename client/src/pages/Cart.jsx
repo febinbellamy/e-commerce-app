@@ -1,14 +1,15 @@
-import { Add, Remove } from "@material-ui/icons";
-import { useSelector } from "react-redux";
+import { Add, Remove, DeleteOutline } from "@material-ui/icons";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
 import StripeCheckout from "react-stripe-checkout";
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useEffect, useState, useCallback } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { userRequest } from "../requestMethods";
+import { deleteProduct, emptyCart } from "../redux/cartRedux";
 
 const dotenv = require("dotenv");
 dotenv.config({ path: "../../../.env" });
@@ -43,16 +44,6 @@ const TopButton = styled.button`
   background-color: ${(props) =>
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
-`;
-
-const TopTexts = styled.div`
-  ${mobile({ display: "none" })};
-`;
-
-const TopText = styled.span`
-  text-decoration: underline;
-  cursor: pointer;
-  margin: 0px 10px;
 `;
 
 const Bottom = styled.div`
@@ -168,10 +159,21 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onToken = (token) => {
     setStripeToken(token);
   };
+
+  const handleDelete = useCallback((product) => {
+    dispatch(
+      deleteProduct({
+        id: product._id,
+        total: product.price * product.quantity,
+      })
+    );
+    console.log(product);
+  }, []);
 
   useEffect(() => {
     const makeRequest = async () => {
@@ -188,19 +190,17 @@ const Cart = () => {
     };
     stripeToken && makeRequest();
   }, [stripeToken, cart.total, history]);
+
   return (
     <Container>
       <Navbar />
       <Announcement />
       <Wrapper>
-        <Title>YOUR BAG</Title>
+        <Title>YOUR CART</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
-          <TopTexts>
-            <TopText>Shopping Bag (2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
-          </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
+          <Link to="/">
+            <TopButton>CONTINUE SHOPPING</TopButton>
+          </Link>
         </Top>
         <Bottom>
           <Info>
@@ -219,6 +219,7 @@ const Cart = () => {
                     <ProductSize>
                       <b>Size:</b> {product.size}
                     </ProductSize>
+                    <DeleteOutline onClick={() => handleDelete(product)} />
                   </Details>
                 </ProductDetail>
                 <PriceDetail>
@@ -233,7 +234,6 @@ const Cart = () => {
                 </PriceDetail>
               </Product>
             ))}
-
             <Hr />
           </Info>
           <Summary>
