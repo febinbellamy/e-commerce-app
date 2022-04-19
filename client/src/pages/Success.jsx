@@ -42,9 +42,9 @@ const Success = () => {
     >
       {orderId
         ? `Order has been created successfully. Your order number is ${orderId}`
-        : `Successful. Your order is being prepared...`}
+        : `Hooray! Your payment was successful. You should receive your order within 5 business days.`}
       <Link to="/">
-        <button style={{ padding: 10, marginTop: 20 }}>Go to Homepage</button>
+        <button style={{ padding: 10, marginTop: 20 }}>Continue Shopping</button>
       </Link>
     </div>
   );

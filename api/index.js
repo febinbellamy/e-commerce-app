@@ -24,6 +24,6 @@ app.use("/api/orders", orderRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/checkout", stripeRoute);
 
-app.listen(4000, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log(`Backend server is running on port 4000`);
 });
