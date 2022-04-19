@@ -219,7 +219,10 @@ const Cart = () => {
                     <ProductSize>
                       <b>Size:</b> {product.size}
                     </ProductSize>
-                    <DeleteOutline onClick={() => handleDelete(product)} />
+                    <DeleteOutline
+                      onClick={() => handleDelete(product)}
+                      style={{ cursor: "pointer" }}
+                    />
                   </Details>
                 </ProductDetail>
                 <PriceDetail>
@@ -254,7 +257,6 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
-
             <StripeCheckout
               name="Feb Shop"
               image="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
