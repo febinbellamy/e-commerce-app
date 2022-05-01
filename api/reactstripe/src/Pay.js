@@ -17,7 +17,7 @@ const Pay = () => {
     const makeRequest = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:4000/api/checkout/payment",
+          "https://ecommerce-app-mern-stack.herokuapp.com/api/checkout/payment",
           {
             tokenId: stripeToken.id,
             amount: 2000,
