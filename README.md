@@ -7,7 +7,7 @@ eBuy is an e-commerce website that sells clothing and fashion accessories. https
 - Add and remove products from the cart
 - Stripe API payment integration for checkout
 - Authentication using JSON Web Tokens
-- An admin dashboard for adding and removing products
+- An admin dashboard for adding, updating, and removing products
 
 
 ## Technologies used
