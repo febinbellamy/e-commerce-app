@@ -1,4 +1,7 @@
-eBuy is an e-commerce website that sells clothing and fashion accessories. https://ecommerce-app-mern-stack.herokuapp.com/
+eBuy is an e-commerce website that sells clothing and fashion accessories. 
+https://ecommerce-app-mern-stack.herokuapp.com/
+https://serene-gumption-bf8b4e.netlify.app/
+
 <img width="1433" alt="Screen Shot 2022-05-02 at 12 38 48 PM" src="https://user-images.githubusercontent.com/89381034/166286607-1849807f-cf53-4bbe-be14-b5fc0d5abd4c.png">
 
 
